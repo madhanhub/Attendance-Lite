@@ -41,6 +41,10 @@ app.get('/',async(req,res)=>{
     res.send('WELCOME')
 })
 
+//localhost  http://localhost:5000/
+
+//User
+// method: POST   route/new/user
 app.post('/new/user',async(req,res)=>{
     try{
         const {name,email,password,isAdmin}=req.body
@@ -54,6 +58,9 @@ app.post('/new/user',async(req,res)=>{
         res.status(500).json({message:'User not register'})
     }
 })
+
+
+// method: POST   route/login
 
 app.post('/login',async(req,res)=>{
     try{
@@ -79,6 +86,8 @@ app.post('/login',async(req,res)=>{
     }
 })
 
+// method: POST   route/inTime
+
 app.post('/inTime',async(req,res)=>{
     try{
         const {userId}=req.body
@@ -97,6 +106,7 @@ app.post('/inTime',async(req,res)=>{
     }
 })
 
+// method: POST   route/outTime
 
 app.post('/outTime',authorization,async(req,res)=>{
     try{
@@ -124,6 +134,7 @@ app.post('/outTime',authorization,async(req,res)=>{
     }
 })
 
+// method: POST   route/breakStart
 
 app.post('/breakStart',authorization,async(req,res)=>{
     
@@ -143,6 +154,8 @@ app.post('/breakStart',authorization,async(req,res)=>{
         res.status(500).json({message:'break not updated'})
     }
 })
+
+// method: POST   route/breakEnd
 
 app.post('/breakEnd',authorization,async(req,res)=>{
     try{
@@ -168,6 +181,8 @@ app.post('/breakEnd',authorization,async(req,res)=>{
     }
 })
 
+// method: POST   route/userAttendance
+
 app.post('/userAttendance',async(req,res)=>{
     try{
         const {userId}=req.body
@@ -181,6 +196,8 @@ app.post('/userAttendance',async(req,res)=>{
  res.status(500).json({message:'User log not get'})
     }
 })
+
+// method: POST   route/excel
 
 app.get('/excel',async(req,res)=>{
     try{
